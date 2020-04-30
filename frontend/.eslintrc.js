@@ -35,6 +35,7 @@ module.exports = {
     'jsx-a11y'
   ],
   rules: {
+    "indent": "off",
     'prettier/prettier': ['error', prettierOptions],
     'arrow-body-style': [2, 'as-needed'],
     'class-methods-use-this': 0,

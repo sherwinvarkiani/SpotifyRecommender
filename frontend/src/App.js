@@ -1,27 +1,28 @@
 import React from 'react';
 import './App.css';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useParams,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import Home from './Components/Home';
+import Login from './Components/Login';
+
+const history = createBrowserHistory();
 
 function App() {
-  console.log('here');
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Edit and save to reload. </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router history={history}>
+        <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/auth">
+            <div> Here </div>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
